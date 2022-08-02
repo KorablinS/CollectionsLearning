@@ -1,9 +1,6 @@
 package ru.synergy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,8 +18,8 @@ public class Main {
         for(Cat cat : cats){
             catsList.add(cat);
         }
-        catsList.add(new Cat("Бегемот2"));
-        catsList.remove(1);
+        catsList.add(new Cat("Бегемот"));
+       // catsList.remove(1);
 
         Cat cat = catsList.get(0);
         System.out.println(cat);
@@ -30,7 +27,7 @@ public class Main {
 
         catsList.add(2,cat);
         catsList.set(2, new Cat("Меня сюда вставили"));
-        catsList.removeAll(Arrays.asList(cat, catsList.get(3)));
+        //catsList.removeAll(Arrays.asList(cat, catsList.get(3)));
 
         System.out.println(catsList.toString());
 
@@ -72,31 +69,60 @@ public class Main {
         System.out.println(cars.pollFirst());
         System.out.println(cars);
 
-        // ArrayList  vs  LinkedList
-        List<Integer> list = new LinkedList<>();
-        for(int i=0; i<5000000; i++ ) {
-            list.add(new Integer(i));
-        }
+//        // ArrayList  vs  LinkedList
+//
+//
+//        List<Integer> list = new LinkedList<>();
+//        for(int i=0; i<5000000; i++ ) {
+//            list.add(new Integer(i));
+//        }
+//
+//        long start = System.currentTimeMillis();
+//        for(int i = 0; i<100; i++) {
+//            list.add(2000000, Integer.MAX_VALUE);
+//
+//        }
+//        System.out.println("Время работы для LinkedList (в милисекундах)" + (System.currentTimeMillis()- start));
+//
+//        list = new ArrayList<>();
+//        for(int i=0; i<5000000; i++ ) {
+//            list.add(new Integer(i));
+//        }
+//
+//        start = System.currentTimeMillis();
+//        for(int i = 0; i<100; i++) {
+//            list.add(2000000, Integer.MAX_VALUE);
+//
+//        }
+//        System.out.println("Время работы для ArrayList (в милисекундах)" + (System.currentTimeMillis()- start));
 
-        long start = System.currentTimeMillis();
-        for(int i = 0; i<100; i++) {
-            list.add(2000000, Integer.MAX_VALUE);
 
-        }
-        System.out.println("Время работы для LinkedList (в милисекундах)" + (System.currentTimeMillis()- start));
+        // Set
+        Set<String> states = new HashSet<>();
+        states.add("Germany");
+        states.add("France");
+        states.add("Italy");
 
-        list = new ArrayList<>();
-        for(int i=0; i<5000000; i++ ) {
-            list.add(new Integer(i));
-        }
+        boolean isAdded = states.add("Italy");
 
-        start = System.currentTimeMillis();
-        for(int i = 0; i<100; i++) {
-            list.add(2000000, Integer.MAX_VALUE);
+        System.out.println("Italy isAdded: " + isAdded);
 
-        }
-        System.out.println("Время работы для ArrayList (в милисекундах)" + (System.currentTimeMillis()- start));
+        System.out.println("Set contains: " + states.size());
 
+        System.out.println(states);
+
+        states.remove("Germany");
+        System.out.println(states);
+
+        HashSet<Cat> catHashSet = new HashSet(catsList);
+        System.out.println(catHashSet);
+
+
+
+        TreeSet<Cat> catTreeSet = new TreeSet<>(catsList);
+        System.out.println(catTreeSet);
+
+        // Map
 
 
 
