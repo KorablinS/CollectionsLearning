@@ -2,10 +2,11 @@ package ru.synergy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
+        //Arrays
         Cat[] cats = new Cat[4];
         cats[0] = new Cat("Томас");
         cats[1] = new Cat("Бегемот");
@@ -14,6 +15,7 @@ public class Main {
 
        // cats[1] = null;
         System.out.println(Arrays.toString(cats));
+        // ArrayList
         ArrayList<Cat> catsList = new ArrayList();
         for(Cat cat : cats){
             catsList.add(cat);
@@ -33,8 +35,21 @@ public class Main {
 
         System.out.println(catsList.size());
 
+        //LinkedList
+        String str1 = new String("Hello world");
+        String str2 = new String("My name Sergei");
+        String str3 = new String("I Love Java");
+
+        LinkedList<String> sergeiBio = new LinkedList<>();
+        sergeiBio.add(str1);
+        sergeiBio.add(str2);
+        sergeiBio.add(str3);
 
 
+        System.out.println(sergeiBio);
+
+        sergeiBio.remove(1);
+        System.out.println(sergeiBio);
 
     }
 
